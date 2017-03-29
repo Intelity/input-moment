@@ -1,4 +1,4 @@
-require('../src/less/input-moment.less');
+// require('../src/less/input-moment.less');
 require('./app.less');
 
 var moment = require('moment-timezone');
