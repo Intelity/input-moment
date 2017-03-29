@@ -6,7 +6,7 @@ module.exports = React.createClass({
   displayName: 'Time',
 
   render() {
-    var m = this.props.moment;
+    var m = this.props.moment.clone();
 
     return (
       <div className={cx('m-time', this.props.className)}>
@@ -39,13 +39,13 @@ module.exports = React.createClass({
   },
 
   changeHours(pos) {
-    var m = this.props.moment;
+    var m = this.props.moment.clone();
     m.hours(parseInt(pos.x, 10));
     this.props.onChange(m);
   },
 
   changeMinutes(pos) {
-    var m = this.props.moment;
+    var m = this.props.moment.clone();
     m.minutes(parseInt(pos.x, 10));
     this.props.onChange(m);
   }
