@@ -17,16 +17,14 @@ module.exports = React.createClass({
   getDefaultProps() {
     return {
       prevMonthIcon: 'ion-ios-arrow-left',
-      prevMonthIconContent: '',
       nextMonthIcon: 'ion-ios-arrow-right',
-      nextMonthIconContent: '',
     };
   },
 
   render() {
     var tab = this.state.tab;
     var m = this.props.moment.clone();
-    var props = blacklist(this.props, 'className', 'moment', 'prevMonthIcon', 'nextMonthIcon', 'prevMonthIconContent', 'nextMonthIconContent', 'onSave');
+    var props = blacklist(this.props, 'className', 'moment', 'prevMonthIcon', 'nextMonthIcon', 'onSave');
     props.className = cx('m-input-moment', this.props.className);
 
     return (
@@ -46,9 +44,7 @@ module.exports = React.createClass({
             moment={m}
             onChange={this.props.onChange}
             prevMonthIcon={this.props.prevMonthIcon}
-            prevMonthIconContent={this.props.prevMonthIconContent}
             nextMonthIcon={this.props.nextMonthIcon}
-            nextMonthIconContent={this.props.nextMonthIconContent}
           />
           <Time
             className={cx('tab', {'is-active': tab === 1})}
