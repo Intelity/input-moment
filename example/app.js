@@ -1,7 +1,7 @@
 require('../src/less/input-moment.less');
 require('./app.less');
 
-var moment = require('moment');
+var moment = require('moment-timezone');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var InputMoment = require('../src/input-moment');
@@ -12,7 +12,7 @@ var App = React.createClass({
 
   getInitialState() {
     return {
-      m: moment()
+      m: moment().tz('America/New_York')
     };
   },
 
@@ -40,7 +40,7 @@ var App = React.createClass({
   },
 
   handleChange(m) {
-    this.setState({ m });
+    this.setState({ m: m.tz('America/New_York') });
   },
 
   handleSave() {
