@@ -18,13 +18,15 @@ module.exports = React.createClass({
     return {
       prevMonthIcon: 'ion-ios-arrow-left',
       nextMonthIcon: 'ion-ios-arrow-right',
+      saveLabel: 'Save',
+      hintText: '',
     };
   },
 
   render() {
     var tab = this.state.tab;
     var m = this.props.moment.clone();
-    var props = blacklist(this.props, 'className', 'moment', 'prevMonthIcon', 'nextMonthIcon', 'onSave');
+    var props = blacklist(this.props, 'className', 'moment', 'prevMonthIcon', 'nextMonthIcon', 'onSave', 'saveLabel', 'hintText');
     props.className = cx('m-input-moment', this.props.className);
 
     return (
@@ -53,9 +55,13 @@ module.exports = React.createClass({
           />
         </div>
 
+        {this.props.hintText ? (
+          <div className="hint-text">{this.props.hintText}</div>
+        ) : null}
+
         <button type="button" className="im-btn btn-save ion-checkmark"
           onClick={this.handleSave}>
-          Save
+          {this.props.saveLabel}
         </button>
       </div>
     );
